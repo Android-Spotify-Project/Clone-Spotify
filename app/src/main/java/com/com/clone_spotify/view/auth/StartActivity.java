@@ -6,11 +6,11 @@ import android.os.Bundle;
 
 import com.com.clone_spotify.R;
 
-public class JoinActivity extends AppCompatActivity {
+public class StartActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_join);
+        setContentView(R.layout.activity_start);
     }
 }
