@@ -1,9 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<!--회원가입하러가기 누르면 나오는 화면-->
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.auth.JoinActivity">
+    android:orientation="vertical"
+    android:background="#191414"
+    tools:context=".view.auth.LoginActivity">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:backgroundTint="@color/material_on_primary_disabled"
+        android:orientation="vertical"
+        android:padding="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tfEmail"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center"
+            app:boxBackgroundColor="@color/white"
+            app:helperText="이메일주소가 무엇인가요?"
+            app:helperTextEnabled="true"
+            app:helperTextTextColor="@color/white">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/material_on_primary_disabled" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tfPassword"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center"
+            app:boxBackgroundColor="@color/white"
+            app:endIconMode="password_toggle"
+            app:helperText="비밀번호 만들기"
+            app:helperTextEnabled="true"
+            app:helperTextTextColor="@color/white">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/material_on_primary_disabled"
+                android:inputType="textPassword" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--생년월일 선택 -> date picker?-->
+        <!--성별 선택 -> drop down 내려서 선택할 수 있으면 좋겠어-->
+
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="회원가입" />
+
+        <Button
+            android:id="@+id/btnTextLinkLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="이미 회원이신가요?"
+            android:textColor="@color/spotify_green"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            />
+
+<!--        <TextView-->
+<!--            android:id="@+id/tvLinkLogin"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:gravity="center"-->
+<!--            android:text="이미 회원이신가요?"-->
+<!--            android:textColor="@android:color/holo_green_dark" />-->
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
