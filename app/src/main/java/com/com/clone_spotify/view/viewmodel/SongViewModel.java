@@ -1,4 +1,6 @@
 package com.com.clone_spotify.view.viewmodel;
 
-public class SongViewModel {
+import androidx.lifecycle.ViewModel;
+
+public class SongViewModel extends ViewModel {
 }
