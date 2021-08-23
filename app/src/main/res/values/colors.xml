@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <!--spotify color Add-->
     <color name="spotify_green">#1DB954</color>
     <color name="spotify_black">#191414</color>
