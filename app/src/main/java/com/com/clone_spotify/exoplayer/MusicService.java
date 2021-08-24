@@ -1,4 +1,13 @@
 package com.com.clone_spotify.exoplayer;
 
-public class MusicService {
+import androidx.activity.ComponentActivity;
+
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
+public class MusicService extends ComponentActivity {
+
+
+
+
 }
