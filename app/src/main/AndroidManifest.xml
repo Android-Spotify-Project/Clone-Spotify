@@ -11,9 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CloneSpotify">
         <activity android:name=".view.auth.JoinActivity"/>
-        <activity android:name=".view.MainActivity" />
+        <activity android:name=".view.auth.StartActivity"/>
         <activity android:name=".view.auth.LoginActivity"/>
-        <activity android:name=".view.auth.StartActivity">
+        <activity android:name=".view.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
