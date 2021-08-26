@@ -3,6 +3,7 @@
     package="com.com.clone_spotify">
 
     <application
+        android:name=".SpotifyApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -11,8 +12,8 @@
         android:theme="@style/Theme.CloneSpotify">
         <activity android:name=".view.auth.JoinActivity"/>
         <activity android:name=".view.MainActivity" />
-        <activity android:name=".view.auth.StartActivity" />
-        <activity android:name=".view.auth.LoginActivity">
+        <activity android:name=".view.auth.LoginActivity"/>
+        <activity android:name=".view.auth.StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
