@@ -2,6 +2,7 @@
 
 <!--가입하기, 구글로 계속하기, facebook 으로 계속하기 버튼 여기서-->
 
+
 <androidx.appcompat.widget.LinearLayoutCompat
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -10,13 +11,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/spotify_black"
-    tools:context=".view.auth.StartActivity">
+    tools:context=".view.auth.StartActivity"
+    android:id="@+id/lyStart"
+    >
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="119dp">
+        tools:layout_editor_absoluteY="119dp"
+        >
 
         <TextView
             android:id="@+id/textView"
@@ -59,7 +63,7 @@
 
 
         <Button
-            android:id="@+id/btnTextLinkLogin"
+            android:id="@+id/btnLogin"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -10,6 +10,7 @@ import android.util.Log;
 
 import com.com.clone_spotify.R;
 import com.com.clone_spotify.view.InitActivity;
+import com.firebase.ui.auth.AuthMethodPickerLayout;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract;
 import com.firebase.ui.auth.IdpResponse;
@@ -29,7 +30,7 @@ public class LoginActivity extends AppCompatActivity implements InitActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-
+        login();
     }
 
 
@@ -46,5 +47,63 @@ public class LoginActivity extends AppCompatActivity implements InitActivity {
     @Override
     public void initSetting() {
 
+    }
+
+    public void login(){
+        // Choose authentication providers
+        List<AuthUI.IdpConfig> providers = Arrays.asList(
+                new AuthUI.IdpConfig.EmailBuilder().build(),
+                new AuthUI.IdpConfig.GoogleBuilder().build(),
+                new AuthUI.IdpConfig.FacebookBuilder().build(),
+                new AuthUI.IdpConfig.TwitterBuilder().build());
+
+//        AuthMethodPickerLayout customLayout = new AuthMethodPickerLayout
+//                .Builder(R.layout.activity_start)
+//                // ...
+//                .build();
+
+        // Create and launch sign-in intent
+        Intent signInIntent = AuthUI.getInstance()
+                .createSignInIntentBuilder()
+                .setAvailableProviders(providers)
+                .setLogo(R.drawable.ic_icon) // Set logo drawable
+                .setTheme(R.style.Theme_CloneSpotify)
+                .build();
+        signInLauncher.launch(signInIntent);
+
+        Log.d(TAG, "signin: 구글 로그인 화면 으로 이동");
+
+    }
+
+
+    private final ActivityResultLauncher<Intent> signInLauncher = registerForActivityResult(
+            new FirebaseAuthUIActivityResultContract(),
+            new ActivityResultCallback<FirebaseAuthUIAuthenticationResult>() {
+                @Override
+                public void onActivityResult(FirebaseAuthUIAuthenticationResult result) {
+                    onSignInResult(result);
+                    Log.d(TAG, "onActivityResult: 로그인 완료된 후 콜백 ");
+                }
+            }
+    );
+
+    private void onSignInResult(FirebaseAuthUIAuthenticationResult result) {
+        IdpResponse response = result.getIdpResponse();
+        if (result.getResultCode() == RESULT_OK) {
+            // 로그인 성공시
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            Log.d(TAG, "onSignInResult: 로그인 완료");
+            Log.d(TAG, "onSignInResult: "+user.getEmail());
+            Log.d(TAG, "onSignInResult: "+user.getUid());
+            Log.d(TAG, "onSignInResult: "+user.getProviderId());
+            // ...
+        } else {
+            // getIdpResponse() 에 로그인 정보가 들어 있음
+            Log.d(TAG, "onSignInResult: 로그인 실패"+result.getIdpResponse().getError());
+            // 로그인 실패시. If response is null the user canceled the
+            // sign-in flow using the back button. Otherwise check
+            // response.getError().getErrorCode() and handle the error.
+            // ...
+        }
     }
 }
