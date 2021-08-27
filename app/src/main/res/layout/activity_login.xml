@@ -22,7 +22,7 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tfEmail"
+
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="100dp"
@@ -32,7 +32,8 @@
             app:helperTextEnabled="true"
             app:helperTextTextColor="@color/white">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <EditText
+                android:id="@+id/etEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/material_on_primary_disabled" />
@@ -40,7 +41,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tfPassword"
+
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="100dp"
@@ -51,7 +52,8 @@
             app:helperTextEnabled="true"
             app:helperTextTextColor="@color/white">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <EditText
+                android:id="@+id/etPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/material_on_primary_disabled"
