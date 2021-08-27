@@ -3,6 +3,7 @@ package com.com.clone_spotify.view.auth;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.util.Log;
@@ -13,6 +14,7 @@ import android.widget.Toast;
 import com.com.clone_spotify.R;
 import com.com.clone_spotify.model.User;
 import com.com.clone_spotify.view.InitActivity;
+import com.com.clone_spotify.view.MainActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.chip.Chip;
@@ -34,6 +36,7 @@ public class JoinActivity extends AppCompatActivity implements InitActivity {
     // 실시간 데이터 베이스
     private DatabaseReference mRef;
 
+    private JoinActivity mContext = JoinActivity.this;
     private TextInputEditText tiEmail,tiPassword;
     private Chip chipJoin;
     private Button btnTextLinkLogin;
@@ -89,6 +92,9 @@ public class JoinActivity extends AppCompatActivity implements InitActivity {
                             }
                         }
                     });
+            Intent intent = new Intent(mContext, MainActivity.class);
+            startActivity(intent);
+            finish();
         });
     }
 

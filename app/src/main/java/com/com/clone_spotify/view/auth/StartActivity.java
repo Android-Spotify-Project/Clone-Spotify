@@ -13,6 +13,7 @@ import android.widget.Button;
 
 import com.com.clone_spotify.R;
 import com.com.clone_spotify.view.InitActivity;
+import com.com.clone_spotify.view.MainActivity;
 
 
 public class StartActivity extends AppCompatActivity implements InitActivity {
@@ -49,7 +50,7 @@ public class StartActivity extends AppCompatActivity implements InitActivity {
             startActivity(intent);
         });
         btnLogin.setOnClickListener(view -> {
-            Intent intent = new Intent(mContext,LoginActivity.class);
+            Intent intent = new Intent(mContext, MainActivity.class);
             startActivity(intent);
         });
 
