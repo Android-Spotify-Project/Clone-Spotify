@@ -61,6 +61,8 @@ dependencies {
     def arch_version = "2.1.0"
     // bottom nav
     def nav_version = "2.3.5"
+    // 프래그먼트
+    def fragment_version = "1.3.6"
 
     // ViewModel
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
@@ -88,6 +90,7 @@ dependencies {
     // Java 프레그먼트 implementation
     implementation "androidx.navigation:navigation-fragment:$nav_version"
     implementation "androidx.navigation:navigation-ui:$nav_version"
+    implementation "androidx.fragment:fragment:$fragment_version"
     // cardview
     implementation "androidx.cardview:cardview:1.0.0"
     // glide
