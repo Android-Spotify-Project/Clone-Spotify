@@ -50,7 +50,7 @@ public class StartActivity extends AppCompatActivity implements InitActivity {
             startActivity(intent);
         });
         btnLogin.setOnClickListener(view -> {
-            Intent intent = new Intent(mContext, MainActivity.class);
+            Intent intent = new Intent(mContext, FirebaseUIActivity.class);
             startActivity(intent);
         });
 

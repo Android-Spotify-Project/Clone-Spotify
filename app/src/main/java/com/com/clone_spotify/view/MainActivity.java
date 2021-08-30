@@ -2,17 +2,31 @@ package com.com.clone_spotify.view;
 
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.menu.MenuView;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.ClipData;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.FrameLayout;
 
 import com.com.clone_spotify.R;
+import com.com.clone_spotify.view.fragments.HomeFragment;
+import com.com.clone_spotify.view.fragments.LibraryFragment;
+import com.com.clone_spotify.view.viewmodel.AuthViewModel;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract;
 import com.firebase.ui.auth.IdpResponse;
 import com.firebase.ui.auth.data.model.FirebaseAuthUIAuthenticationResult;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -23,64 +37,60 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity2";
 
+    private MainActivity mContext = MainActivity.this;
+
+    private BottomNavigationView bottomNavigationView;
+    private FrameLayout fragmentContainer;
+    private Fragment LibraryFragment;
+    private RecyclerView reLibrary;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        login();
-    }
+        //bottomNavigationView.setSelectedItemId(R.id.bottom_nav);
 
-    public void login(){
-        // 로그인 인증 종류 빌드
-        List<AuthUI.IdpConfig> providers = Arrays.asList(
-                new AuthUI.IdpConfig.EmailBuilder().build(),
-                new AuthUI.IdpConfig.GoogleBuilder().build(),
-                new AuthUI.IdpConfig.FacebookBuilder().build(),
-                new AuthUI.IdpConfig.TwitterBuilder().build());
-
-        // 로그인 화면 만듬
-        Intent signInIntent = AuthUI.getInstance()
-                .createSignInIntentBuilder()
-                .setAvailableProviders(providers)
-                .setLogo(R.drawable.ic_icon) // Set logo drawable
-                .setTheme(R.style.Theme_CloneSpotify)
-                .build();
-        signInLauncher.launch(signInIntent);
-
-        Log.d(TAG, "signin: 구글 로그인 화면 으로 이동");
-
+        init();
+        initLr();
     }
 
 
-    private final ActivityResultLauncher<Intent> signInLauncher = registerForActivityResult(
-            new FirebaseAuthUIActivityResultContract(),
-            new ActivityResultCallback<FirebaseAuthUIAuthenticationResult>() {
-                @Override
-                public void onActivityResult(FirebaseAuthUIAuthenticationResult result) {
-                    onSignInResult(result);
-                    Log.d(TAG, "onActivityResult: 로그인 완료된 후 콜백 ");
+    public void init(){
+        bottomNavigationView = findViewById(R.id.bottom_nav);
+        fragmentContainer = findViewById(R.id.fragmentContainer);
+    }
+
+    public void initLr(){
+        getSupportFragmentManager().beginTransaction().add(R.id.homeFragment, new HomeFragment()).commit();
+
+        bottomNavigationView.setOnItemSelectedListener(item ->  {
+
+            Fragment selectedFragment = null;
+
+                switch (item.getItemId()) {
+                    case R.id.library:
+                        Log.d(TAG, "initLr: 라이브러리 클릭");
+                        selectedFragment = new LibraryFragment(mContext);
+                        break;
+
+                    case R.id.searchFragment:
+                        Log.d(TAG, "initLr: 서치 프레그먼트 클릭 ");
+
+                        break;
+
+                    case R.id.homeFragment:
+                        Log.d(TAG, "initLr: 홈프레그먼트 클릭");
+
+                        break;
+
                 }
-            }
-    );
+            getSupportFragmentManager().beginTransaction().add(R.id.fragmentContainer, selectedFragment).commit();
 
-    private void onSignInResult(FirebaseAuthUIAuthenticationResult result) {
-        IdpResponse response = result.getIdpResponse();
-        if (result.getResultCode() == RESULT_OK) {
-            // 로그인 성공시
-            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-            Log.d(TAG, "onSignInResult: 로그인 완료");
-            Log.d(TAG, "onSignInResult: "+user.getEmail());
-            Log.d(TAG, "onSignInResult: "+user.getUid());
-            Log.d(TAG, "onSignInResult: "+user.getProviderId());
-            // ...
-        } else {
-            // getIdpResponse() 에 로그인 정보가 들어 있음
-            Log.d(TAG, "onSignInResult: 로그인 실패"+result.getIdpResponse().getError());
-            // 로그인 실패시. If response is null the user canceled the
-            // sign-in flow using the back button. Otherwise check
-            // response.getError().getErrorCode() and handle the error.
-            // ...
-        }
+                return true;
+
+        });
     }
+
 }
