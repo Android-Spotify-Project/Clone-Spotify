@@ -50,8 +50,17 @@ public class LibraryFragment extends Fragment {
     private ImageView ivAlbumImg;
 
     private MainActivity mContext;
+
+
 //    private LibraryFragment mContext = LibraryFragment.this;
 
+    public LibraryFragment() {
+
+    }
+
+    public static LibraryFragment newInstance(){
+        return new LibraryFragment();
+    }
 
 
 
