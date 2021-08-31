@@ -17,7 +17,8 @@
         android:layout_weight="1"
         android:layout_above="@id/playBar"
         app:defaultNavHost="true"
-        app:navGraph="@navigation/nav_graph" />
+        app:navGraph="@navigation/nav_graph"
+        tools:ignore="MissingPrefix" />
 
 
     <androidx.appcompat.widget.LinearLayoutCompat

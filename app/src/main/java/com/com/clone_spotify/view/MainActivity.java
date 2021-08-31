@@ -1,52 +1,42 @@
 package com.com.clone_spotify.view;
 
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.view.menu.MenuView;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.ClipData;
-import android.content.Intent;
+import androidx.fragment.app.FragmentContainerView;
+
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.Button;
 import android.widget.FrameLayout;
 
 import com.bumptech.glide.RequestManager;
 import com.com.clone_spotify.R;
 import com.com.clone_spotify.view.fragments.HomeFragment;
 import com.com.clone_spotify.view.fragments.LibraryFragment;
-import com.com.clone_spotify.view.viewmodel.AuthViewModel;
-import com.firebase.ui.auth.AuthUI;
-import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract;
-import com.firebase.ui.auth.IdpResponse;
-import com.firebase.ui.auth.data.model.FirebaseAuthUIAuthenticationResult;
+import com.com.clone_spotify.view.fragments.SearchMenuFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
-import java.util.Arrays;
-import java.util.List;
 
 import javax.inject.Inject;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint // 안드로이드 컴포넌트(서비스 프레그먼트 포함)에 inject 하려면 필요한 어노테이션
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
+
     // 인젝션 확인코드 입니다.
     @Inject
     public RequestManager glide;
 
     private static final String TAG = "MainActivity2";
-
     private MainActivity mContext = MainActivity.this;
+
+    private FragmentContainerView nav_host_fragment;
+    private BottomNavigationView bnv;
+
 
     private BottomNavigationView bottomNavigationView;
     private FrameLayout fragmentContainer;
@@ -63,8 +53,14 @@ public class MainActivity extends AppCompatActivity {
 
         init();
         initLr();
+
+        //fragment 초기화면 설정
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        fragmentTransaction.add(R.id.fragmentContainer, HomeFragment.newInstance()).commit();
+
     }
 
+    /*내비게이션 화면이동=========================================================================================*/
 
     public void init(){
         bottomNavigationView = findViewById(R.id.bottom_nav);
@@ -72,8 +68,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void initLr(){
-        getSupportFragmentManager().beginTransaction().add(R.id.homeFragment, new HomeFragment()).commit();
+        //fragment 초기화면 설정
+        getSupportFragmentManager().beginTransaction()
+                .add(R.id.fragmentContainer, new HomeFragment())
+                .commit();
 
+        //네비게이션 누르면 각각 화면 뿌리기
         bottomNavigationView.setOnItemSelectedListener(item ->  {
 
             Fragment selectedFragment = null;
@@ -86,20 +86,35 @@ public class MainActivity extends AppCompatActivity {
 
                     case R.id.searchFragment:
                         Log.d(TAG, "initLr: 서치 프레그먼트 클릭 ");
+                        selectedFragment = new SearchMenuFragment(mContext);
 
                         break;
 
                     case R.id.homeFragment:
                         Log.d(TAG, "initLr: 홈프레그먼트 클릭");
-
+                        selectedFragment = new HomeFragment();
                         break;
 
                 }
-            getSupportFragmentManager().beginTransaction().add(R.id.fragmentContainer, selectedFragment).commit();
+            //뿌려질 화면 위치
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.fragmentContainer, selectedFragment)
+                    .commit();
 
-                return true;
+
+             return true;
 
         });
     }
+
+    public void replaceFragment(Fragment fragment){
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragmentContainer, fragment).commit();
+
+    }
+
+
 
 }
