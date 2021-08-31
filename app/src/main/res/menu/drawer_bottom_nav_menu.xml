@@ -4,16 +4,20 @@
     <item
         android:id="@+id/homeFragment"
         android:icon="@drawable/ic_nav_home"
+        android:enabled="true"
         android:title="홈" />
 
     <item
-        android:id="@+id/searchfragment"
+        android:id="@+id/searchFragment"
         android:icon="@drawable/ic_nav_search"
+        android:enabled="true"
         android:title="검색" />
 
     <item
         android:id="@+id/library"
         android:icon="@drawable/ic_nav_list"
+        android:enabled="true"
         android:title="내 라이브러리" />
+
 
 </menu>

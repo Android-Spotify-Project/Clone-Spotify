@@ -1,29 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.appcompat.widget.LinearLayoutCompat
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/lyMain"
     tools:context=".view.MainActivity">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:layout_above="@id/playBar"
-        android:id="@+id/nav_host_fragment"
+    <FrameLayout
+        android:id="@+id/fragmentContainer"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_above="@id/playBar"
         app:defaultNavHost="true"
-        app:navGraph="@navigation/nav_graph" />
-<!--BottomNavigationView style="@style/Widget.App.BottomNavigationView" 추가해야함-->
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_nav"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_gravity="start"
-        android:layout_marginBottom="1dp"
-        app:menu="@menu/drawer_bottom_nav_menu" />
+        app:navGraph="@navigation/nav_graph"
+        tools:ignore="MissingPrefix" />
+
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:id="@+id/playBar"
@@ -56,4 +52,14 @@
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
-</RelativeLayout>
+    <!--BottomNavigationView style="@style/Widget.App.BottomNavigationView" 추가해야함-->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="start"
+        android:layout_marginBottom="1dp"
+        app:menu="@menu/drawer_bottom_nav_menu" />
+
+</androidx.appcompat.widget.LinearLayoutCompat>

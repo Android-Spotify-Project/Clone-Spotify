@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.fragments.SearchFragment">
+
+    <!--리사이클러 뷰 위에 검색창 추가-->
+    <!--색 바꿔도됨-->
+    <com.mancj.materialsearchbar.MaterialSearchBar
+        android:id="@+id/searchBar"
+        style="@style/MaterialSearchBarLight"
+        app:mt_speechMode="false"
+        app:mt_searchIconDrawable="@drawable/ic_nav_search"
+        app:mt_searchIconTint="@color/spotify_black"
+        app:mt_hint="검색하기"
+        app:mt_hintColor="@color/spotify_black"
+        app:mt_searchBarColor="@color/spotify_white"
+        app:mt_placeholder="아티스트, 곡 또는 앨범"
+        app:mt_placeholderColor="@color/spotify_black"
+        app:mt_maxSuggestionsCount="10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <!--화면에서 세로로 50:50 반씩 나옴-->
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical">
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </GridLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

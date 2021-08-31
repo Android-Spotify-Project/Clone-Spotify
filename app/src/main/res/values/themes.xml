@@ -1,16 +1,22 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.CloneSpotify" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.CloneSpotify" parent="Theme.MaterialComponents">
         <!-- Primary brand color. -->
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
         <item name="colorOnSecondary">@color/white</item>
         <item name="colorButtonNormal">@color/spotify_green</item>
+        <item name="backgroundColor">@color/black</item>
+        <item name="background">@color/black</item>
+
         <!-- Third brand color. -->
 <!--        <item name="colorOnThird">@color/green</item>-->
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="textAppearanceHeadline1">@android:style/Widget.TextView</item>
+
+
     </style>
 
 <!--    <style name="Widget.App.BottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView.Colored">-->
@@ -20,9 +26,6 @@
 <!--        <item name="colorPrimary">@color/nav_color</item>-->
 <!--        <item name="colorOnPrimary">@color/white</item>-->
 <!--    </style>-->
-
-
-
 
 
 </resources>

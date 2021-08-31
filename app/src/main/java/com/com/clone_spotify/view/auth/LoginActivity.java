@@ -10,6 +10,7 @@ import android.util.Log;
 
 import com.com.clone_spotify.R;
 import com.com.clone_spotify.view.InitActivity;
+import com.firebase.ui.auth.AuthMethodPickerLayout;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract;
 import com.firebase.ui.auth.IdpResponse;
@@ -47,4 +48,6 @@ public class LoginActivity extends AppCompatActivity implements InitActivity {
     public void initSetting() {
 
     }
+
+
 }
