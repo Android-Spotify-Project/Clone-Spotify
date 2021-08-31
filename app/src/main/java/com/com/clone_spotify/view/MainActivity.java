@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void initLr(){
-        getSupportFragmentManager().beginTransaction().add(R.id.homeFragment, new HomeFragment()).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.fragmentContainer, new HomeFragment()).commit();
 
         bottomNavigationView.setOnItemSelectedListener(item ->  {
 
