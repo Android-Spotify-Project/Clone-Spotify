@@ -5,6 +5,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -22,6 +23,7 @@ import com.com.clone_spotify.R;
 import com.com.clone_spotify.adapters.SearchAdapter;
 import com.com.clone_spotify.model.Song;
 import com.com.clone_spotify.view.InitActivity;
+import com.com.clone_spotify.view.MainActivity;
 import com.com.clone_spotify.view.viewmodel.SearchViewModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -63,6 +65,8 @@ public class SearchFragment extends Fragment {
     public void onCreate(@Nullable @org.jetbrains.annotations.Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        setHasOptionsMenu(true);
+
     }
 
     @Override
@@ -84,6 +88,11 @@ public class SearchFragment extends Fragment {
         // true 로 설정해 줄 경우 ViewGroup의 자식 View로 자동으로 추가됩니다. 이때 root는 null 일 수 없습니다.
         // Inflate the layout for this fragment
 
+        ActionBar ab = ((MainActivity)getActivity()).getSupportActionBar();
+        ab.setTitle("검색하기");
+        ab.setIcon(R.drawable.ic_nav_search);
+        ab.setDisplayHomeAsUpEnabled(true);
+
         return v;
     }
 
@@ -104,7 +113,7 @@ public class SearchFragment extends Fragment {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 //입력 동시처리
-                String searchResult = searchBar.getText();
+                String searchResult = searchBar.getText().trim();
                 Log.d(TAG, "onTextChanged: @@여기@@ : "+ searchBar.getText()); //그대로 나옴
 
                 searchAction(searchResult);
@@ -129,9 +138,12 @@ public class SearchFragment extends Fragment {
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull @NotNull Task<QuerySnapshot> task) {
+
+                        songs.clear();//검색전 songs List 초기화
+
                         for (QueryDocumentSnapshot document : task.getResult()){
 
-                            Log.d(TAG, "onComplete: "+document.getData());
+                            Log.d(TAG, "onComplete: "+document.getData()); //모든 데이터
 
                             if (document.getData().containsValue(searchResult)){
                                 //여기 실행이 안되네...? -> 자꾸 꺼짐

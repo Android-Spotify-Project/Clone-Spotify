@@ -3,6 +3,7 @@ package com.com.clone_spotify.view.fragments;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -29,10 +30,7 @@ public class SearchMenuFragment extends Fragment {
     private MaterialCardView card1;
 
 
-    public SearchMenuFragment(MainActivity mContext) {
-
-    }
-
+    public SearchMenuFragment(MainActivity mContext) {}
     public SearchMenuFragment() { /*빈 생성자*/ }
 
 
@@ -55,17 +53,32 @@ public class SearchMenuFragment extends Fragment {
         card1.setOnClickListener(v -> {
 
             Log.d(TAG, "onCreateView: 내 라이브러리 클릭됨");
-            ((MainActivity)getActivity()).replaceFragment(LibraryFragment.newInstance());
+//            ((MainActivity)getActivity()).replaceFragment(LibraryFragment.newInstance());
 
+            FragmentManager fm = getActivity().getSupportFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            ft.replace(R.id.fragmentContainer, new LibraryFragment());
+            ft.commit();
         });
+        ActionBar ab = ((MainActivity)getActivity()).getSupportActionBar();
+        ab.setTitle("내 라이브러리");
+        ab.setDisplayHomeAsUpEnabled(false);
 
         // searchbar 누르면 결과 list 뿌릴 빈화면으로 이동
         tvSearchBar.setOnClickListener(v-> {
 
             Log.d(TAG, "onCreateView: 검색창 클릭됨");
-           ((MainActivity)getActivity()).replaceFragment(SearchFragment.newInstance());
+//           ((MainActivity)getActivity()).replaceFragment(SearchFragment.newInstance());
+
+            FragmentManager fm = getActivity().getSupportFragmentManager();
+            FragmentTransaction ft = fm.beginTransaction();
+            ft.replace(R.id.fragmentContainer, new SearchFragment());
+            ft.commit();
 
         });
+        ActionBar ab2 = ((MainActivity)getActivity()).getSupportActionBar();
+        ab2.setTitle("검색하기");
+        ab.setDisplayHomeAsUpEnabled(false);
 
         return view;
 

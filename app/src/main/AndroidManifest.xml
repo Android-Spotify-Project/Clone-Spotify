@@ -15,10 +15,13 @@
 
         <activity
             android:name=".view.auth.FirebaseUIActivity"
-            android:exported="true" />
-        <activity android:name=".view.auth.JoinActivity" />
+            android:exported="true"
+            android:parentActivityName=".view.MainActivity"/>
+        <activity android:name=".view.auth.JoinActivity"
+            android:parentActivityName=".view.MainActivity"/>
         <activity android:name=".view.MainActivity" />
-        <activity android:name=".view.auth.LoginActivity" />
+        <activity android:name=".view.auth.LoginActivity"
+            android:parentActivityName=".view.MainActivity"/>
 
         <activity android:name=".view.auth.StartActivity">
             <intent-filter>

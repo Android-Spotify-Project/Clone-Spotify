@@ -11,6 +11,7 @@ import androidx.fragment.app.FragmentContainerView;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.FrameLayout;
+import android.widget.Toolbar;
 
 import com.bumptech.glide.RequestManager;
 import com.com.clone_spotify.R;
@@ -25,9 +26,7 @@ import javax.inject.Inject;
 import dagger.hilt.android.AndroidEntryPoint;
 
 
-public class MainActivity extends AppCompatActivity  {
-
-    // 인젝션 확인코드 입니다.
+public class MainActivity extends CustomAppBarActivity  {
 
     public RequestManager glide;
 
@@ -42,6 +41,10 @@ public class MainActivity extends AppCompatActivity  {
     private FrameLayout fragmentContainer;
     private Fragment LibraryFragment;
     private RecyclerView reLibrary;
+
+    //appbar
+    private Toolbar toolbar;
+
 
 
     @Override
@@ -66,6 +69,8 @@ public class MainActivity extends AppCompatActivity  {
         Log.d(TAG, "init: ");
         bottomNavigationView = findViewById(R.id.bottom_nav);
         fragmentContainer = findViewById(R.id.fragmentContainer);
+        toolbar = findViewById(R.id.toolbarMain);
+
     }
 
     public void initLr(){

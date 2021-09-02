@@ -1,6 +1,5 @@
 package com.com.clone_spotify.adapters;
 
-import android.app.SearchableInfo;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,7 +37,7 @@ public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SongViewHo
         //viewHolder 생성
 
         LayoutInflater inflater = (LayoutInflater) parent.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View v1 = inflater.inflate(R.layout.search_test_item, parent, false);
+        View v1 = inflater.inflate(R.layout.search_item, parent, false);
 
         return new SongViewHolder(v1);
     }

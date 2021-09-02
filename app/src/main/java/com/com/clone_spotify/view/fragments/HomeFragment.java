@@ -4,12 +4,15 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -23,6 +26,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
@@ -38,6 +43,14 @@ public class HomeFragment extends Fragment {
     private DatabaseReference hDatabaseReference;
 
     private MainActivity mContext;
+
+    //toolbarMain 처리
+
+
+    @Override
+    public void onCreateOptionsMenu(@NonNull @NotNull Menu menu, @NonNull @NotNull MenuInflater inflater) {
+        inflater.inflate(R.menu.toolbar_main, menu);
+    }
 
     public HomeFragment(MainActivity mContext){
         this.mContext = mContext;
@@ -55,6 +68,13 @@ public class HomeFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "onCreate: ");
+
+
+        //화면마다 appbar 설정
+        ActionBar ab = ((MainActivity)getActivity()).getSupportActionBar();
+        ab.setTitle("clone-spotify");
+        ab.setDisplayHomeAsUpEnabled(false);
+
     }
 
     @Override

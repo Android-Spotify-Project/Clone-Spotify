@@ -2,6 +2,7 @@ package com.com.clone_spotify.view.auth;
 
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.com.clone_spotify.R;
+import com.com.clone_spotify.view.CustomAppBarActivity;
 import com.com.clone_spotify.view.MainActivity;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract;
@@ -20,7 +22,7 @@ import com.google.firebase.auth.FirebaseUser;
 import java.util.Arrays;
 import java.util.List;
 
-public class FirebaseUIActivity extends AppCompatActivity {
+public class FirebaseUIActivity extends CustomAppBarActivity {
 
     private static final String TAG = "FirebaseUIActivity";
 
@@ -31,7 +33,20 @@ public class FirebaseUIActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_firebase_ui);
 
+        ActionBar ab = getSupportActionBar();
+        ab.setTitle("로그인 하기");
+        ab.setDisplayHomeAsUpEnabled(true);
+
+
         login();
+    }
+
+    @Override
+    protected void onAppBarSettings(boolean isBackButton, String title) {
+
+
+
+        super.onAppBarSettings(isBackButton, title);
     }
 
     private final ActivityResultLauncher<Intent> signInLauncher = registerForActivityResult(
