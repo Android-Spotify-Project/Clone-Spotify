@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -52,8 +53,15 @@ public class LibraryFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(TAG, "onCreate: 온크레이트");
+
+        //appbar setting
+        ActionBar ab = ((MainActivity)getActivity()).getSupportActionBar();
+        ab.setTitle("내 라이브러리");
+        ab.setDisplayHomeAsUpEnabled(true);
+
     }
 
+    public LibraryFragment(){/*빈 생성자*/}
     public LibraryFragment(MainActivity mContext) {
         this.mContext = mContext;
     }

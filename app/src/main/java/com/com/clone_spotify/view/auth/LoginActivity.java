@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.com.clone_spotify.R;
+import com.com.clone_spotify.view.CustomAppBarActivity;
 import com.com.clone_spotify.view.InitActivity;
 import com.firebase.ui.auth.AuthMethodPickerLayout;
 import com.firebase.ui.auth.AuthUI;
@@ -21,7 +22,7 @@ import com.google.firebase.auth.FirebaseUser;
 import java.util.Arrays;
 import java.util.List;
 
-public class LoginActivity extends AppCompatActivity implements InitActivity {
+public class LoginActivity extends CustomAppBarActivity implements InitActivity {
 
     private static final String TAG = "LoginActivity";
 

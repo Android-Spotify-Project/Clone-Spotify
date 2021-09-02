@@ -1,18 +1,22 @@
 package com.com.clone_spotify.view.auth;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import android.util.Log;
+import android.view.Menu;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.com.clone_spotify.R;
 import com.com.clone_spotify.model.User;
+import com.com.clone_spotify.view.CustomAppBarActivity;
 import com.com.clone_spotify.view.InitActivity;
 import com.com.clone_spotify.view.MainActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -27,7 +31,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 
-public class JoinActivity extends AppCompatActivity implements InitActivity {
+public class JoinActivity extends CustomAppBarActivity implements InitActivity {
 
     private static final String TAG = "JoinActivity";
 
@@ -51,8 +55,28 @@ public class JoinActivity extends AppCompatActivity implements InitActivity {
         mAuth = FirebaseAuth.getInstance();
         mRef = FirebaseDatabase.getInstance().getReference("CloneSpotify");
 
+
+        ActionBar ab = getSupportActionBar();
+        ab.setTitle("계정만들기");
+        ab.setDisplayHomeAsUpEnabled(true);
+
+
         init();
         initLr();
+    }
+
+    @Override
+    protected void onAppBarSettings(boolean isBackButton, String title) {
+
+        super.onAppBarSettings(isBackButton, title);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+
+        Toolbar mToolbar = findViewById(R.id.toolbarMain);
+        return true;
     }
 
     @Override
@@ -96,6 +120,15 @@ public class JoinActivity extends AppCompatActivity implements InitActivity {
             startActivity(intent);
             finish();
         });
+
+        btnTextLinkLogin.setOnClickListener(v -> {
+            Intent intent = new Intent(
+                    mContext,
+                    FirebaseUIActivity.class
+            );
+            startActivity(intent);
+        });
+
     }
 
 //    private void createAccount() {
