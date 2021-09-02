@@ -19,7 +19,6 @@ import android.widget.TextView;
 import com.com.clone_spotify.R;
 import com.com.clone_spotify.view.MainActivity;
 import com.google.android.material.card.MaterialCardView;
-import com.mancj.materialsearchbar.MaterialSearchBar;
 
 public class SearchMenuFragment extends Fragment {
 

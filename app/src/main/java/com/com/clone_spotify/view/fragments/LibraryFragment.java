@@ -43,15 +43,10 @@ public class LibraryFragment extends Fragment {
 
 //    private LibraryFragment mContext = LibraryFragment.this;
 
-    public LibraryFragment() {
-
+    // 오류 안나게 할려고 임시로 만듬
+    public static Fragment newInstance() {
+        return null;
     }
-
-    public static LibraryFragment newInstance(){
-        return new LibraryFragment();
-    }
-
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

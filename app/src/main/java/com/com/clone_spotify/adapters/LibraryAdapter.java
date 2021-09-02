@@ -12,9 +12,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.com.clone_spotify.R;
 import com.com.clone_spotify.model.Library;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.LibraryViewHolder> {
@@ -25,10 +29,19 @@ public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.LibraryV
 
     //private LibraryAdapter mContext;
 
-    public LibraryAdapter(ArrayList<Library> arrayList, Context Context) {
+    public LibraryAdapter(ArrayList<Library> arrayList, Context context) {
         this.arrayList = arrayList;
         this.context = context;
     }
+
+//    public void includesForDownloadFiles() throws IOException {
+//        FirebaseStorage storage = FirebaseStorage.getInstance();
+//
+//        // Create a reference from an HTTPS URL
+//        // Note that in the URL, characters are URL escaped!
+//        StorageReference httpsReference = storage.getReferenceFromUrl("https://firebasestorage.googleapis.com/v0/b/com-cos-clonespotifylogin.appspot.com/o/Bruno%20Mars%2C%20Anderson%20.Paak%2C%20Silk%20Sonic%20-%20Leave%20the%20Door%20Open.png?alt=media&token=157d3b00-7420-4cfd-a455-127df3de0c58");
+//        Log.d(TAG, "includesForDownloadFiles: 다운로드 ");
+//    }
 
 
     @NonNull
@@ -45,9 +58,14 @@ public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.LibraryV
     @Override
     // 각 아이템들에 대한 매치를 시켜줌.
     public void onBindViewHolder(@NonNull LibraryViewHolder holder, int position) {
+        // 에러 실행시 이미지
+//        RequestOptions requestOptions = new RequestOptions()
+//                .error(R.drawable.ic_launcher_background);
         // 글라이드로 앨범 이미지 넣기
         Glide.with(holder.itemView)
+                //.setDefaultRequestOptions(requestOptions)
                 .load(arrayList.get(position).getAlbumImg())
+                .centerCrop()
                 .into(holder.ivAlbumImg);
         holder.tvSongTitle.setText(arrayList.get(position).getSongTitle());
         holder.tvArtistName.setText(arrayList.get(position).getArtistName());
@@ -68,9 +86,9 @@ public class LibraryAdapter extends RecyclerView.Adapter<LibraryAdapter.LibraryV
 
         public LibraryViewHolder(@NonNull View itemView) {
             super(itemView);
-            ivAlbumImg = itemView.findViewById(R.id.ivAlbumImg);
-            tvSongTitle = itemView.findViewById(R.id.tvSongTitle);
-            tvArtistName = itemView.findViewById(R.id.tvArtistName);
+            this.ivAlbumImg = itemView.findViewById(R.id.ivAlbumImg);
+            this.tvSongTitle = itemView.findViewById(R.id.tvSongTitle);
+            this.tvArtistName = itemView.findViewById(R.id.tvArtistName);
             Log.d(TAG, "LibraryViewHolder: 라이브러리 뷰 홀더");
         }
     }
