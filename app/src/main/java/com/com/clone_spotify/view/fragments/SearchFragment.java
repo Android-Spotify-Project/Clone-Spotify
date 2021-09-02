@@ -67,6 +67,7 @@ public class SearchFragment extends Fragment {
 
         setHasOptionsMenu(true);
 
+
     }
 
     @Override
@@ -92,6 +93,8 @@ public class SearchFragment extends Fragment {
         ab.setTitle("검색하기");
         ab.setIcon(R.drawable.ic_nav_search);
         ab.setDisplayHomeAsUpEnabled(true);
+
+
 
         return v;
     }

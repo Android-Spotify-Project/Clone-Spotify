@@ -44,8 +44,6 @@ public class HomeFragment extends Fragment {
 
     private MainActivity mContext;
 
-    //toolbarMain 처리
-
 
     @Override
     public void onCreateOptionsMenu(@NonNull @NotNull Menu menu, @NonNull @NotNull MenuInflater inflater) {

@@ -70,12 +70,10 @@ public class SearchMenuFragment extends Fragment {
             Log.d(TAG, "onCreateView: 검색창 클릭됨");
 //           ((MainActivity)getActivity()).replaceFragment(SearchFragment.newInstance());
 
-            FragmentManager fm = getActivity().getSupportFragmentManager();
-            FragmentTransaction ft = fm.beginTransaction();
-            ft.replace(R.id.fragmentContainer, new SearchFragment());
-            ft.commit();
+            getParentFragmentManager().beginTransaction().replace(R.id.fragmentContainer, SearchFragment.newInstance()).commit();
 
         });
+
         ActionBar ab2 = ((MainActivity)getActivity()).getSupportActionBar();
         ab2.setTitle("검색하기");
         ab.setDisplayHomeAsUpEnabled(false);
