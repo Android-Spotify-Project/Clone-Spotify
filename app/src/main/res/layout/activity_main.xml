@@ -15,42 +15,22 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_above="@id/playBar"
+        android:layout_above="@id/bottom_media_controller"
         app:defaultNavHost="true"
         app:navGraph="@navigation/nav_graph"
         tools:ignore="MissingPrefix" />
 
-
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/playBar"
+    <fragment
         android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_above="@id/bottom_nav"
-        android:background="@drawable/layout_border"
-        android:orientation="horizontal">
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/bottom_media_controller"
+        android:name="com.com.clone_spotify.view.fragments.MediaControllerFragment">
 
-        <ImageView
-            android:id="@+id/ivCurSongImage"
-            android:layout_width="56dp"
-            android:layout_height="match_parent"
-            app:srcCompat="@drawable/billiecover1" />
-
-        <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/vpSong"
-            android:layout_weight="1"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginStart="5dp"
-            android:layout_marginEnd="5dp" />
-
-        <ImageView
-            android:id="@+id/ivPlayPause"
-            app:srcCompat="@drawable/ic_play"
-            android:layout_width="56dp"
-            android:layout_height="match_parent"/>
+    </fragment>
 
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+
 
     <!--BottomNavigationView style="@style/Widget.App.BottomNavigationView" 추가해야함-->
     <com.google.android.material.bottomnavigation.BottomNavigationView

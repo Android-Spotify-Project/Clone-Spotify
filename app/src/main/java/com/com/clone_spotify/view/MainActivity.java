@@ -9,12 +9,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.fragment.app.FragmentContainerView;
 
 import android.os.Bundle;
+import android.support.v4.media.MediaMetadataCompat;
+import android.support.v4.media.session.MediaControllerCompat;
+import android.support.v4.media.session.PlaybackStateCompat;
 import android.util.Log;
 import android.widget.FrameLayout;
 import android.widget.Toolbar;
 
 import com.bumptech.glide.RequestManager;
 import com.com.clone_spotify.R;
+import com.com.clone_spotify.SpotifyApplication;
+import com.com.clone_spotify.client.MediaBrowserHelperCallback;
+import com.com.clone_spotify.util.MyPreferenceManager;
 import com.com.clone_spotify.view.fragments.HomeFragment;
 import com.com.clone_spotify.view.fragments.LibraryFragment;
 import com.com.clone_spotify.view.fragments.SearchMenuFragment;
@@ -26,7 +32,7 @@ import javax.inject.Inject;
 import dagger.hilt.android.AndroidEntryPoint;
 
 
-public class MainActivity extends CustomAppBarActivity  {
+public class MainActivity extends CustomAppBarActivity  implements InitMainActivity, MediaBrowserHelperCallback {
 
     public RequestManager glide;
 
@@ -119,5 +125,53 @@ public class MainActivity extends CustomAppBarActivity  {
     }
 
 
+    @Override
+    public void onMetadataChanged(MediaMetadataCompat metadata) {
 
+    }
+
+    @Override
+    public void onPlaybackStateChanged(PlaybackStateCompat state) {
+
+    }
+
+    @Override
+    public void onMediaControllerConnected(MediaControllerCompat mediaController) {
+
+    }
+
+    @Override
+    public void hideProgressBar() {
+
+    }
+
+    @Override
+    public void showPrgressBar() {
+
+    }
+
+    @Override
+    public void setActionBarTitle(String title) {
+
+    }
+
+    @Override
+    public void playPause() {
+
+    }
+
+    @Override
+    public SpotifyApplication getMyApplicationInstance() {
+        return null;
+    }
+
+    @Override
+    public void onMediaSelected(MediaMetadataCompat mediaItem, int position) {
+
+    }
+
+    @Override
+    public MyPreferenceManager getMyPreferenceManager() {
+        return null;
+    }
 }
