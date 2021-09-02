@@ -38,6 +38,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
                 android:backgroundTint="@color/spotify_green"
+                android:background="@drawable/roundedbutton"
                 android:text="셔플 재생하기"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
