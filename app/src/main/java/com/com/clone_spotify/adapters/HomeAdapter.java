@@ -46,7 +46,7 @@ public class HomeAdapter extends RecyclerView.Adapter<HomeAdapter.HomeViewHolder
                 .load(hArrayList.get(position).getAlbumImg1())
                 .centerCrop()
                 .into(holder.ivAlbum1);
-        // 앨범 이미지 클릭 했을때 
+        // 앨범 이미지 클릭 했을때
         holder.ivAlbum1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
