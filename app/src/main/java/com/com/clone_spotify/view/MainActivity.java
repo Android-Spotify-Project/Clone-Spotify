@@ -45,7 +45,9 @@ public class MainActivity extends CustomAppBarActivity  implements InitMainActiv
 
     private BottomNavigationView bottomNavigationView;
     private FrameLayout fragmentContainer;
-    private Fragment LibraryFragment;
+    private Fragment libraryFragment;
+    private Fragment searchFragment;
+    private Fragment searchMenuFragment ;
     private RecyclerView reLibrary;
 
     //appbar
@@ -80,7 +82,11 @@ public class MainActivity extends CustomAppBarActivity  implements InitMainActiv
     }
 
     public void initLr(){
-        getSupportFragmentManager().beginTransaction().add(R.id.fragmentContainer, new HomeFragment()).commit();
+        getSupportFragmentManager()
+                .beginTransaction()
+                .add(R.id.fragmentContainer, new HomeFragment())
+                .addToBackStack(null)
+                .commit();
 
         //네비게이션 누르면 각각 화면 뿌리기
         bottomNavigationView.setOnItemSelectedListener(item ->  {
@@ -108,12 +114,24 @@ public class MainActivity extends CustomAppBarActivity  implements InitMainActiv
             //뿌려질 화면 위치
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.fragmentContainer, selectedFragment)
+                    .addToBackStack(null)
                     .commit();
 
 
              return true;
 
         });
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        if(searchMenuFragment.isVisible()){
+
+        }
+
+
+        super.onBackPressed();
     }
 
     public void replaceFragment(Fragment fragment){
