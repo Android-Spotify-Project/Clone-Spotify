@@ -4,7 +4,7 @@ import androidx.activity.ComponentActivity;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
-@AndroidEntryPoint
+
 public class MusicService extends ComponentActivity {
 
 

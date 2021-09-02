@@ -24,11 +24,11 @@ import javax.inject.Inject;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
-@AndroidEntryPoint // 안드로이드 컴포넌트(서비스 프레그먼트 포함)에 inject 하려면 필요한 어노테이션
+
 public class MainActivity extends AppCompatActivity  {
 
     // 인젝션 확인코드 입니다.
-    @Inject
+
     public RequestManager glide;
 
     private static final String TAG = "MainActivity2";
@@ -48,21 +48,22 @@ public class MainActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        Log.d(TAG, "onCreate: 온 크레이트 실행 됨");
         //bottomNavigationView.setSelectedItemId(R.id.bottom_nav);
 
         init();
         initLr();
 
-        //fragment 초기화면 설정
-        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-        fragmentTransaction.add(R.id.fragmentContainer, HomeFragment.newInstance()).commit();
-
+        //fragment 초기화면 설정 ==> initLr 이 먼저 실행되고 또 newInstance 하기때문에 2번실행이됨. 그래서 주석처리 함.
+        //FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        //fragmentTransaction.add(R.id.fragmentContainer, HomeFragment.newInstance()).commit();
+        
     }
 
     /*내비게이션 화면이동=========================================================================================*/
 
     public void init(){
+        Log.d(TAG, "init: ");
         bottomNavigationView = findViewById(R.id.bottom_nav);
         fragmentContainer = findViewById(R.id.fragmentContainer);
     }
@@ -89,7 +90,7 @@ public class MainActivity extends AppCompatActivity  {
 
                     case R.id.homeFragment:
                         Log.d(TAG, "initLr: 홈프레그먼트 클릭");
-                        selectedFragment = new HomeFragment();
+                        selectedFragment = new HomeFragment(mContext);
                         break;
 
                 }
@@ -105,7 +106,7 @@ public class MainActivity extends AppCompatActivity  {
     }
 
     public void replaceFragment(Fragment fragment){
-
+        Log.d(TAG, "replaceFragment: ");
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.fragmentContainer, fragment).commit();

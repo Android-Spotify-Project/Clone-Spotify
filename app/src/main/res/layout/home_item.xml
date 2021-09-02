@@ -1,80 +1,175 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.appcompat.widget.LinearLayoutCompat
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/lyHomeItem"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:background="@color/black"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
 
-    <EditText
-        android:id="@+id/txTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="Title"
-        android:textColor="@color/white"
-        android:textSize="30dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/ivAlbum1"
-        android:layout_width="158dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txTitle"
-        app:srcCompat="@drawable/ex01" />
+    <HorizontalScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/ivAlbum2"
-        android:layout_width="158dp"
-        android:layout_height="150dp"
-        app:layout_constraintStart_toEndOf="@+id/ivAlbum1"
-        app:layout_constraintTop_toTopOf="@+id/ivAlbum1"
-        app:srcCompat="@drawable/ex01" />
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/ivAlbum3"
-        android:layout_width="158dp"
-        android:layout_height="150dp"
-        app:layout_constraintStart_toEndOf="@+id/ivAlbum2"
-        app:layout_constraintTop_toTopOf="@+id/ivAlbum2"
-        app:srcCompat="@drawable/ex01" />
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Title"
+            android:textColor="@color/white"
+            android:textSize="30dp"
+            android:textStyle="bold" />
 
-    <EditText
-        android:id="@+id/txArtist1"
-        android:layout_width="130dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="10dp"
-        android:text="Artist name"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivAlbum1" />
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
-    <EditText
-        android:id="@+id/txArtist2"
-        android:layout_width="130dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="28dp"
-        android:text="Artist name"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toEndOf="@+id/txArtist1"
-        app:layout_constraintTop_toTopOf="@+id/txArtist1" />
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/txArtist3"
-        android:layout_width="130dp"
-        android:layout_height="45dp"
-        android:layout_marginStart="32dp"
-        android:text="Artist name"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toEndOf="@+id/txArtist2"
-        app:layout_constraintTop_toTopOf="@+id/txArtist2" />
+                <ImageView
+                    android:id="@+id/ivAlbum1"
+                    android:layout_width="158dp"
+                    android:layout_height="150dp"
+                    app:srcCompat="@drawable/ex01"
+                    android:layout_margin="3dp"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/tvArtist1"
+                    android:layout_width="158dp"
+                    android:layout_height="45dp"
+                    android:layout_margin="3dp"
+                    android:text="Artist name"
+                    android:textColor="@color/white" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/ivAlbum2"
+                    android:layout_width="158dp"
+                    android:layout_height="150dp"
+                    app:srcCompat="@drawable/ex01"
+                    android:layout_margin="3dp"/>
+
+                <TextView
+                    android:id="@+id/tvArtist2"
+                    android:layout_width="158dp"
+                    android:layout_height="45dp"
+                    android:layout_margin="3dp"
+                    android:text="Artist name"
+                    android:textColor="@color/white" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/ivAlbum3"
+                    android:layout_width="158dp"
+                    android:layout_height="150dp"
+                    app:srcCompat="@drawable/ex01"
+                    android:layout_margin="3dp"/>
+
+                <TextView
+                    android:id="@+id/tvArtist3"
+                    android:layout_width="158dp"
+                    android:layout_height="45dp"
+                    android:layout_margin="3dp"
+                    android:text="Artist name"
+                    android:textColor="@color/white" />
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/ivAlbum4"
+                    android:layout_width="158dp"
+                    android:layout_height="150dp"
+                    app:srcCompat="@drawable/ex01"
+                    android:layout_margin="3dp"/>
+
+                <TextView
+                    android:id="@+id/tvArtist4"
+                    android:layout_width="158dp"
+                    android:layout_height="45dp"
+                    android:layout_margin="3dp"
+                    android:text="Artist name"
+                    android:textColor="@color/white" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/ivAlbum5"
+                    android:layout_width="158dp"
+                    android:layout_height="150dp"
+                    app:srcCompat="@drawable/ex01"
+                    android:layout_margin="3dp"/>
+
+                <TextView
+                    android:id="@+id/tvArtist5"
+                    android:layout_width="158dp"
+                    android:layout_height="45dp"
+                    android:layout_margin="3dp"
+                    android:text="Artist name"
+                    android:textColor="@color/white" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/ivAlbum6"
+                    android:layout_width="158dp"
+                    android:layout_height="150dp"
+                    app:srcCompat="@drawable/ex01"
+                    android:layout_margin="3dp"/>
+
+                <TextView
+                    android:id="@+id/tvArtist6"
+                    android:layout_width="158dp"
+                    android:layout_height="45dp"
+                    android:layout_margin="3dp"
+                    android:text="Artist name"
+                    android:textColor="@color/white" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    </HorizontalScrollView>
+</androidx.appcompat.widget.LinearLayoutCompat>
