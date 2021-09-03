@@ -169,8 +169,10 @@ public class SearchFragment extends Fragment {
                         }
                     }
                 });
-
-
     }
 
+    @Override
+    public void onAttach(@NonNull @NotNull Context context) {
+        super.onAttach(context);
+    }
 }

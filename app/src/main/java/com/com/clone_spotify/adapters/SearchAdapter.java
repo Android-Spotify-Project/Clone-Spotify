@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.com.clone_spotify.R;
+import com.com.clone_spotify.model.Home;
 import com.com.clone_spotify.model.Song;
 
 import org.jetbrains.annotations.NotNull;
@@ -22,12 +23,11 @@ import java.util.List;
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SongViewHolder>  {
 
     private static final String TAG = "SearchAdapter";
-    private SearchAdapter mContext = SearchAdapter.this;
+    private Context context;
 
     private List<Song> songs = new ArrayList<>();
 
     public SearchAdapter(){
-
     }
 
     @NonNull
