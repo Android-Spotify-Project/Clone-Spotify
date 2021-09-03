@@ -12,17 +12,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CloneSpotify">
-
         <activity
             android:name=".view.auth.FirebaseUIActivity"
             android:exported="true"
-            android:parentActivityName=".view.MainActivity"/>
-        <activity android:name=".view.auth.JoinActivity"
-            android:parentActivityName=".view.MainActivity"/>
+            android:parentActivityName=".view.MainActivity" />
+        <activity
+            android:name=".view.auth.JoinActivity"
+            android:parentActivityName=".view.MainActivity" />
         <activity android:name=".view.MainActivity" />
-        <activity android:name=".view.auth.LoginActivity"
-            android:parentActivityName=".view.MainActivity"/>
-
+        <activity
+            android:name=".view.auth.LoginActivity"
+            android:parentActivityName=".view.MainActivity" />
         <activity android:name=".view.auth.StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
