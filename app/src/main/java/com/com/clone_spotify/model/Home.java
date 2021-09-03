@@ -7,19 +7,43 @@ import lombok.Data;
 
 @Data
 public class Home {
+    // 홈 화면 목록의 제목
     private String songTitle;
+    // 앨범 이미지
     private String albumImg1;
     private String albumImg2;
     private String albumImg3;
     private String albumImg4;
     private String albumImg5;
     private String albumImg6;
+    // 가수 이름 + 제목
     private String artistName1;
     private String artistName2;
     private String artistName3;
     private String artistName4;
     private String artistName5;
     private String artistName6;
+    // 노래 URL
+    private String songUrl1;
+    private String songUrl2;
+    private String songUrl3;
+    private String songUrl4;
+    private String songUrl5;
+    private String songUrl6;
+    // 미디어 ID
+    private String mediaId1;
+    private String mediaId2;
+    private String mediaId3;
+    private String mediaId4;
+    private String mediaId5;
+    private String mediaId6;
+    // 원래 이게 가수 이름 이였어야 함. null 이면 안되기 때문에 넣어줌.
+    private String subTitle1;
+    private String subTitle2;
+    private String subTitle3;
+    private String subTitle4;
+    private String subTitle5;
+    private String subTitle6;
 
     public String getSongTitle() {
         return songTitle;
