@@ -50,16 +50,13 @@ public class HomeFragment extends Fragment {
         inflater.inflate(R.menu.toolbar_main, menu);
     }
 
-    public HomeFragment(MainActivity mContext){
-        this.mContext = mContext;
-    }
 
     public HomeFragment() {
         // Required empty public constructor
     }
 
     public static HomeFragment newInstance() {
-        return null;
+        return new HomeFragment();
     }
 
     @Override

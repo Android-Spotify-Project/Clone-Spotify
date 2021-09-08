@@ -18,10 +18,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.com.clone_spotify.R;
+import com.com.clone_spotify.view.InitActivity;
 import com.com.clone_spotify.view.MainActivity;
 import com.google.android.material.card.MaterialCardView;
 
-public class SearchMenuFragment extends Fragment {
+public class SearchMenuFragment extends Fragment implements InitActivity {
 
     private static final String TAG = "SearchMenuFragment";
     //    private SearchMenuFragment mContext = SearchMenuFragment.this;
@@ -83,4 +84,18 @@ public class SearchMenuFragment extends Fragment {
 
     }
 
+    @Override
+    public void init() {
+
+    }
+
+    @Override
+    public void initLr() {
+
+    }
+
+    @Override
+    public void initSetting() {
+
+    }
 }

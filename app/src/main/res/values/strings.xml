@@ -16,8 +16,7 @@
     <!-- Fragment -->
     <string name="fragment_media_controller">MediaControllerFragment</string>
     <string name="fragment_home">HomeFragment</string>
-    <string name="fragment_category">CategoryFragment</string>
-    <string name="fragment_playlist">PlaylistFragment</string>
+    <string name="fragment_search">SearchFragment</string>
     <string name="fragment_library">LibraryFragment</string>
 
     <!-- Firestore collections -->
