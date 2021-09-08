@@ -124,8 +124,10 @@ public class MainActivity extends CustomAppBarActivity  implements InitMainActiv
         mMyPrefManager = new MyPreferenceManager(this);
         mMediaBrowserHelper = new MediaBrowserHelper(this, MusicService.class);
         mMediaBrowserHelper.setMediaBrowserHelperCallback(this);
+
         fm.beginTransaction().add(R.id.fragmentContainer, libraryFragment, "3").hide(libraryFragment).commit();
-        fm.beginTransaction().add(R.id.fragmentContainer, searchFragment, "2").hide(searchFragment).commit();
+        fm.beginTransaction().add(R.id.fragmentContainer, searchFragment, "4").hide(searchFragment).commit();
+        fm.beginTransaction().add(R.id.fragmentContainer, searchMenuFragment, "2").hide(searchMenuFragment).commit();
         fm.beginTransaction().add(R.id.fragmentContainer, homeFragment, "1").commit();
 
     }

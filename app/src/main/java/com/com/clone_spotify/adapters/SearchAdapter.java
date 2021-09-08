@@ -23,12 +23,18 @@ import java.util.List;
 public class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SongViewHolder>  {
 
     private static final String TAG = "SearchAdapter";
-    private Context context;
+
+    private SearchAdapter mContext = SearchAdapter.this;
+//    private Context context;
 
     private List<Song> songs = new ArrayList<>();
 
-    public SearchAdapter(){
-    }
+    public SearchAdapter(){/*빈 생성자*/}
+
+////    public SearchAdapter(List<Song> songs, Context context){
+////        this.songs = songs;
+////        this.context = context;
+////    }
 
     @NonNull
     @NotNull
