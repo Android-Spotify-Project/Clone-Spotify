@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class Library {
+public class Media {
     private String mediaId;
     private String albumImg;
     private String songTitle;

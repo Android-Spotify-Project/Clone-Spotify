@@ -74,7 +74,7 @@ public class MediaBrowserHelper {
         }
         mMediaBrowser.subscribe(newPlatSongId, mMediaBrowserSubscriptionCallback);
     }
-
+        // 최근 재생 플레이 리스트
 //    public void subscribeToNewPlaylist(String currentPlaylistId, String newPlatlistId){
 //        if(!currentPlaylistId.equals("")){
 //            mMediaBrowser.unsubscribe(currentPlaylistId);

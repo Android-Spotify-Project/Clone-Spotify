@@ -7,15 +7,9 @@ import com.com.clone_spotify.util.MyPreferenceManager;
 
 public interface InitMainActivity {
 
-    void hideProgressBar();
-
-    void showPrgressBar();
-
-    //void onCategorySelected(String category);
-
-    //void onArtistSelected(String category, Artist artist);
-
-    void setActionBarTitle(String title);
+//    void hideProgressBar();
+//
+//    void showProgressBar();
 
     void playPause();
 
